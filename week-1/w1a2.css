@@ -6,33 +6,27 @@
     .box {
         width: 25rem;
     }
-    label {
-        display: none;
-    }
-}
 
 /* Request 2 */
-@media (min-width: 800px) and (max-width: 1199px) {
-    .container {
-        width: 95%;
-    }
-    .box {
-        width: 50%;
-    }
+@media (min-width: 800px) {
     label {
-        display: none;
+        display: none;s
     }
 }
 
-/* need to figure out Req 3 & 4 for DRY */
-/* Request 3*/
-@media (min-width: 500px) and (max-width: 799px) {
+/* Request 2 & 3 content width */
+@media (min-width: 500px) and (max-width:1199px) {
     .container {
         width: 95%;
     }
     .box {
         width: 50%;
     }
+}
+
+/* Request 3*/
+@media (max-width: 799px) {
+    /* below is burger menu */
     .menu {
         display: none;
     }
@@ -46,22 +40,10 @@
 
 /* Request 4 */
 @media (max-width: 499px) {
-    .container {
+    .box {
         width: 95%;
-        flex-direction: column;
-    }
-    .menu {
-        display: none;
-    }
-    a {
-        display: block;
-    }
-    #toggle:checked + .menu {
-        display: block;
     }
 }
-
-
 
 /* belows don't need to change for RWD */
 body {
