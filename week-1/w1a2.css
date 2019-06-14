@@ -6,16 +6,17 @@
     .box {
         width: 25rem;
     }
+}
 
 /* Request 2 */
 @media (min-width: 800px) {
     label {
-        display: none;s
+        display: none;
     }
 }
 
 /* Request 2 & 3 content width */
-@media (min-width: 500px) and (max-width:1199px) {
+@media (max-width:1199px) {
     .container {
         width: 95%;
     }
@@ -99,4 +100,3 @@ button {
     background-color: rgb(204,221,238);
     padding: 0.7rem;
 }
-
