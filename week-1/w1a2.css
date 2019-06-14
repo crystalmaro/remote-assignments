@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Request 1 */
 @media (min-width: 1200px) {
     .container {
@@ -100,3 +101,126 @@ button {
     padding: 0.7rem;
 }
 
+||||||| merged common ancestors
+=======
+/* Request 1 */
+@media (min-width: 1200px) {
+    .container {
+        width: 50rem;
+    }
+    .box {
+        width: 25rem;
+    }
+    label {
+        display: none;
+    }
+}
+
+/* Request 2 */
+@media (min-width: 800px) and (max-width: 1199px) {
+    .container {
+        width: 95%;
+    }
+    .box {
+        width: 50%;
+    }
+    label {
+        display: none;
+    }
+}
+
+/* figure out Req 3 & 4 for DRY */
+/* Request 3*/
+@media (min-width: 500px) and (max-width: 799px) {
+    .container {
+        width: 95%;
+    }
+    .box {
+        width: 50%;
+    }
+    .menu {
+        display: none;
+    }
+    a {
+        display: block;
+    }
+    #toggle:checked + .menu {
+        display: block;
+    }
+}
+
+/* Request 4 */
+@media (max-width: 499px) {
+    .container {
+        width: 95%;
+        flex-direction: column;
+    }
+    .menu {
+        display: none;
+    }
+    a {
+        display: block;
+    }
+    #toggle:checked + .menu {
+        display: block;
+    }
+}
+
+
+
+/* belows don't need to change for RWD */
+body {
+    margin: auto;
+    /* expands background ccolor width */
+}
+
+nav {
+    padding: 1rem 2.5rem 1rem; 
+    background-color: rgb(238,238,238);
+}
+
+.navItem {
+    float: right;
+}
+
+#toggle{
+    display: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding-left: 3rem;
+}
+
+main {
+    text-align: center;
+    /* targets all text besides navBar */
+}
+
+header {
+    border: 3rem solid rgb(204,221,238);
+    background-color: rgb(204,221,238);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto 2rem;
+    /* margin-top 0 to not collide with Section Title */
+}
+
+.box {
+    background-color: rgb(136,153,170);
+    border: 0.5rem solid white;
+    padding: 0.5rem;
+    height: 10rem;
+    box-sizing: border-box;
+}
+button {
+    background-color: rgb(204,221,238);
+    padding: 0.7rem;
+}
+
+>>>>>>> ff64bb90f44c2e14d0907d70bf9b4c5ba80de0bf
