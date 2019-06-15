@@ -1,10 +1,10 @@
 /* Request 1 */
 @media (min-width: 1200px) {
     .container {
-        width: 50rem;
+        width: 75rem;
     }
     .box {
-        width: 25rem;
+        width: 37rem;
     }
 }
 
@@ -47,6 +47,10 @@
 }
 
 /* belows don't need to change for RWD */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: auto;
     /* expands background ccolor width */
@@ -94,8 +98,8 @@ header {
     border: 0.5rem solid white;
     padding: 0.5rem;
     height: 10rem;
-    box-sizing: border-box;
 }
+
 button {
     background-color: rgb(204,221,238);
     padding: 0.7rem;
