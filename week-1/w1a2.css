@@ -1,78 +1,12 @@
-/* Request 1 */
-@media (min-width: 1200px) {
-    .container {
-        width: 75rem;
-    }
-    .box {
-        width: 37rem;
-    }
-}
-
-/* Request 2 */
-@media (min-width: 800px) {
-    label {
-        display: none;
-    }
-}
-
-/* Request 2 & 3 content width */
-@media (max-width:1199px) {
-    .container {
-        width: 95%;
-    }
-    .box {
-        width: 50%;
-    }
-}
-
-/* Request 3*/
-@media (max-width: 799px) {
-    /* below is burger menu */
-    .menu {
-        display: none;
-    }
-    a {
-        display: block;
-    }
-    #toggle:checked + .menu {
-        display: block;
-    }
-}
-
-/* Request 4 */
-@media (max-width: 499px) {
-    .box {
-        width: 95%;
-    }
-}
-
-/* belows don't need to change for RWD */
+/* Basic Layout */
+/* 6/17/2019 adjust to a mobile first approach */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: auto;
-    /* expands background ccolor width */
-}
-
-nav {
-    padding: 1rem 2.5rem 1rem; 
-    background-color: rgb(238,238,238);
-}
-
-.navItem {
-    float: right;
-}
-
-#toggle{
-    display: none;
-}
-
-nav a {
-    text-decoration: none;
-    color: black;
-    padding-left: 3rem;
+    /* expands background color width */
 }
 
 main {
@@ -89,18 +23,89 @@ header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 auto 2rem;
+    margin-top: 0;
     /* margin-top 0 to not collide with Section Title */
 }
 
 .box {
     background-color: rgb(136,153,170);
-    border: 0.5rem solid white;
+    border: 1rem solid white;
     padding: 0.5rem;
     height: 10rem;
+    width: 95%;
+}
+
+.box1 {
+    border-top: 0;
 }
 
 button {
     background-color: rgb(204,221,238);
     padding: 0.7rem;
+    margin: 1rem;
+}
+
+/* Nav Bar */
+nav {
+    padding: 1rem 2.5rem 1rem; 
+    background-color: rgb(238,238,238);
+}
+
+.navItem {
+    float: right;
+}
+
+#toggle,
+.itemMenu {
+    display: none;
+}
+
+#toggle:checked + .itemMenu,
+a {
+    display: block;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding-left: 3rem;
+}
+
+/* Media Query for RWD*/
+@media (min-width: 500px) {
+    .box {
+        width: 50%;
+        border: 0.5rem solid white;
+    }
+    .box1,
+    .box2 {
+        border-top: 0;
+    }
+    .container {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 800px) {
+    .itemMenu,
+    .itemMenu a {
+        display: inline;
+    }
+    label,
+    #toggle {
+        display: none;
+    }
+    .container {
+        border-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 75rem;
+    }
+    .box {
+        width: 50%;
+    }
 }
