@@ -27,12 +27,17 @@ header {
     /* margin-top 0 to not collide with Section Title */
 }
 
+.container2 {
+    display: none;
+    /* hidden for JS function */
+}
+
 .box {
     background-color: rgb(136,153,170);
-    border: 1rem solid white;
+    border: 0.5rem solid white;
     padding: 0.5rem;
     height: 10rem;
-    width: 95%;
+    flex-basis: 95%;
 }
 
 .box1 {
@@ -45,36 +50,74 @@ button {
     margin: 1rem;
 }
 
-/* Nav Bar */
+/* CSS Nav Bar*/
 nav {
     padding: 1rem 2.5rem 1rem; 
     background-color: rgb(238,238,238);
 }
-
-.navItem {
+/* .navItem {
     float: right;
 }
-
 #toggle,
 .itemMenu {
     display: none;
 }
-
 #toggle:checked + .itemMenu,
 a {
     display: block;
 }
-
 nav a {
     text-decoration: none;
     color: black;
     padding-left: 3rem;
+} */
+
+/* ----------------------------- */
+/* JS Nav Bar Attempt #1 */
+/* 6/19 attempt not working yet =[ */
+.topNav {
+    float: right;
 }
+.topNav a {
+    text-decoration: none;
+    color: black;
+    /* padding-right: 3rem; */
+}
+.topNav a:not(:first-child) {
+    display: none;
+}
+
+/* JS responsive */
+.topNav.open {
+    /* position: relative; */
+    /* display: flex; */
+    background-color: white;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    line-height: 3rem;
+    padding: 1rem;
+}
+.topNav.open a.icon {
+    position: absolute;
+    right: 10%;
+    top: 1%;
+}
+.topNav.open a {
+    /* float: none; */
+    display: block;
+    text-align: left;
+}
+/* ----------------------------- */
+
 
 /* Media Query for RWD*/
 @media (min-width: 500px) {
     .box {
-        width: 50%;
+        flex-basis: 50%;
         border: 0.5rem solid white;
     }
     .box1,
@@ -92,10 +135,20 @@ nav a {
     .itemMenu a {
         display: inline;
     }
-    label,
-    #toggle {
+    .topNav {
+        background-color: rgb(238,238,238);
+    }
+    .topNav a:not(:first-child) {
+        display: inline;
+        padding-left: 2.5rem;
+    }
+    .topNav a:first-child {
         display: none;
     }
+    /* label,
+    #toggle {
+        display: none;
+    } */
     .container {
         border-top: 0;
     }
