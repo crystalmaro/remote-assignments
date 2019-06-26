@@ -1,0 +1,23 @@
+{
+  "name": "crystal",
+  "version": "1.0.0",
+  "description": "knowledgebase app",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crystalmaro/remote-assignments.git"
+  },
+  "author": "Crystal Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crystalmaro/remote-assignments/issues"
+  },
+  "homepage": "https://github.com/crystalmaro/remote-assignments#readme"
+}
