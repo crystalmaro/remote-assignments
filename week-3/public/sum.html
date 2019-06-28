@@ -13,11 +13,9 @@
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 document.querySelector("#ajax").innerHTML = this.responseText;
-                //maybe replace responseText with another property?
             }
         };
         // 3. open a request
-        // (HTTP method, URL)
         function sendAJAX() {
             let numberInput = document.getElementById("numberInput").value
             let url = "/getData";
@@ -26,10 +24,7 @@
             }
             xhr.open("GET", url + numberInput);
             // you make an open req per send
-            // Input Text value Property
             // 4. send a request
-            // let formData = new FormData();
-            // formData.append("number", numberInput);
             xhr.send();
         }
     </script>
@@ -40,23 +35,5 @@
     <p id="ajax">hi</p>
     <input id="numberInput" type="text" placeholder="number" >
     <button id="load" onclick="sendAJAX()">Calculate</button>
-    <!--  how to retrieve the input.value and 
-        click the button to submit the value to index.js
-        so it can run the GET function?-->
-
-<!-- <script>
-    var url = "https://teamtreehouse.com/crystalmaro.json"
-    var p1 = fetch(url);
-    // trailing .catch() handles rejection
-    p1.then(function(response) {
-        return response.json();
-    })
-    .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
-    })
-    .catch((err) => $('#console').append("error: ", err.message));
-</script> -->
-
-
 </body>
 </html>
