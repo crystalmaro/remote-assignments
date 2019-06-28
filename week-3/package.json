@@ -2,13 +2,15 @@
   "name": "crystal",
   "version": "1.0.0",
   "description": "knowledgebase app",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "pug": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index"
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
