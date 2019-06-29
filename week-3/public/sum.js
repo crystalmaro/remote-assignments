@@ -13,7 +13,7 @@ function sendAJAX() {
     let url = "/getData";
     if (numberInput !== '') {
         url += "?number=";
-     }
+     };
     xhr.open("GET", url + numberInput);
     // you make an open req per send
     // 4. send a request

@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Username</title>
+    <title>Assignment 4</title>
 </head>
 <body>
-    <form action="/trackName" method="post">
-        <label for="name">
-            <p>Please enter your username below</p>
-                <input id="getName" type="text" name="username">
-                </label>
-                <button type="submit">Submit</button>
-    </form>
+    <p id="ajax">Please enter your first name below</p>
     
+    <!-- @todo hide input and button when name in cookies -->
+    <input id="getName" type="text" placeholder="Your Name" >
+    <button type="submit" onclick="trackName()">Submit</button>
+
     <script type="text/javascript" src="myName.js"></script>
 </body>
 </html>
