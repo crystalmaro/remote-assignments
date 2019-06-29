@@ -1,8 +1,7 @@
 // install Express
-const express = require('express');
-const bodyParser = require('body-parser');
-
-// const cookieParser = require('cookie-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 // create Express application
 // assign it to app, aka the central part of our application
@@ -10,10 +9,10 @@ const app = express();
 const port = 3000;
 
 // Update your Express project to serve static files
-app.use(express.static('public'))
+app.use(express.static("public"))
 
 app.use(bodyParser.urlencoded({ extended: false}));
-// app.use(cookieParser());
+app.use(cookieParser());
 
 // // ======== Pug start
 // // setting app (view engine) to the parameter (Pug)
@@ -22,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // app.set("view engine", "pug");
 // // ======== Pug end
 
-const mainRoutes = require('./routes/index');
+const mainRoutes = require("./routes/index");
 // links routes (index.js) to this file (app.js)
 app.use(mainRoutes);
 

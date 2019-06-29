@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express")
 const router = express.Router();
 
 // === Assignment 1: Web Server
@@ -27,33 +27,33 @@ router.get("/getData", function(req, res){
     } 
 });
 
+// === Assignment 4
+// ======== reference treehouse for Assign #4
+// /trackName doesn't even load TT__TT
+router.get("/trackName", (req, res) => {
+    const name = req.cookies.username;
+    if (name) {
+        res.render("index", { name });
+    } else {
+        res.redirect("/trackName");
+    }
+});
 
+router.get("/trackName", (req, res) => {
+    const name = req.cookies.username;
+    if (name) {
+        res.redirect("/trackName");
+    } else {
+        res.render("hello");
+    }
+});
 
-
-// // ======== reference treehouse for Assign #4
-// router.get('/', (req, res) => {
-//     const name = req.cookies.username;
-//     if (name) {
-//         res.render('index', { name });
-//     } else {
-//         res.redirect('/hello');
-//     }
-// });
-
-// router.get('/hello', (req, res) => {
-//     const name = req.cookies.username;
-//     if (name) {
-//         res.redirect('/');
-//     } else {
-//         res.render('hello');
-//     }
-// });
-
-// router.post('/hello', (req, res) => {
-//     res.cookie('username', req.body.username);
-//     res.redirect('/');
-// });
-// // ======== 
+router.post("/trackName", (req, res) => {
+    res.cookie("username", req.body.username);
+    console.log(req.cookies.username);
+    res.redirect("/trackName");
+});
+// ======== 
 
 // exports this so app.js can import
 module.exports = router;
