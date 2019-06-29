@@ -8,11 +8,14 @@ xhr.onreadystatechange = function () {
         document.querySelector("#ajax").innerHTML = this.responseText;
     }
 };
-
+// @todo parse cookies to return name value
+// currently name=string
+// https://firstdoit.com/quick-tip-one-liner-cookie-read-c695ecb4fe59
 let allCookies = document.cookie;
 if (allCookies !== "") {
     document.querySelector("#ajax").innerHTML = allCookies;
 };
+
 // 3. open a request
 function trackName() {
     // @todo check cookies for names

@@ -1,12 +1,12 @@
 const express = require("express")
 const router = express.Router();
+const cookieParser = require("cookie-parser");
+router.use(cookieParser());
 
 // === Assignment 1: Web Server
 // '/' is the path, (req, res) is the callback
-router.get("/", function(req, res){
-    res.send("Hello! crystal's server on express");
-});
-// router.get('/', (req, res) => res.send("Hey, crystal's server is depending on express!")) 
+router.get('/', (req, res) => 
+res.send("Hey, crystal's server is depending on express!")) 
 
 // === Assignment 2
 router.get("/getData", function(req, res){
@@ -28,31 +28,28 @@ router.get("/getData", function(req, res){
 });
 
 // === Assignment 4
-// ======== reference treehouse for Assign #4
-// /trackName doesn't even load TT__TT
 router.get("/trackName", (req, res) => {
-    const name = req.cookies.username;
-    if (name) {
-        res.render("index", { name });
-    } else {
-        res.redirect("/trackName");
+    let name = (req.query.name);
+    if (name !== "") {
+        res.cookie("name", name);
+        res.send(name);
     }
 });
 
-router.get("/trackName", (req, res) => {
-    const name = req.cookies.username;
-    if (name) {
-        res.redirect("/trackName");
-    } else {
-        res.render("hello");
-    }
-});
+// router.get("/trackName", (req, res) => {
+//     const name = req.cookies.name;
+//     if (name) {
+//         res.redirect("/trackName");
+//     } else {
+//         res.render("hello"); 
+//     }
+// });
 
-router.post("/trackName", (req, res) => {
-    res.cookie("username", req.body.username);
-    console.log(req.cookies.username);
-    res.redirect("/trackName");
-});
+// router.post("/trackName", (req, res) => {
+//     res.cookie("username", name);
+    
+//     res.redirect("/trackName");
+// });
 // ======== 
 
 // exports this so app.js can import
