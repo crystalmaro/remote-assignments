@@ -5,40 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Username</title>
-
-    <!-- <script>
-    
-    // 1. create XMLHTTP Request object
-    let xhr = new XMLHttpRequest();
-    // 2. create callback function
-    xhr.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-        // document.querySelector("#ajax").innerHTML = this.responseText;
-        // }
-    };
-    // 3. open a request
-    function sendAJAX() {
-    let numberInput = document.getElementById("numberInput").value
-    let url = "/getData";
-    if (numberInput !== '') {
-        url += "?number=";
-     }
-    xhr.open("GET", url + numberInput);
-    // you make an open req per send
-    // 4. send a request
-    xhr.send();
-};  
-    </script> -->
-
 </head>
 <body>
     <form action="/trackName" method="post">
         <label for="name">
             <p>Please enter your username below</p>
-                <input type="text" name="username">
+                <input id="getName" type="text" name="username">
                 </label>
                 <button type="submit">Submit</button>
-        </form>
+    </form>
     
+    <script type="text/javascript" src="myName.js"></script>
 </body>
 </html>
