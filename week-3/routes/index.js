@@ -10,50 +10,30 @@ router.get("/", function(req, res){
 
 // === Assignment 2
 router.get("/getData", function(req, res){
-    let number = Number(req.query.number);
-    if (Object.keys(req.query).length === 0) {
+    let number = parseInt(req.query.number);
+    if (!req.query || req.query.number === undefined) {
         //req.query is number in getData?number
         res.send("Lack of Parameter");
-    } else if (!number) {
+    } else if (isNaN(number) || number <= 0) {
         res.send("Wrong Parameter");
     } else {
         let result = 0;
         for (let i = 1; i <= number; i++) {
             result += i;
         }
-        res.send("" + result);
-        // adding "" makes the result to string instead of number
-        // otherwise the app recognizes result number as status code
+        res.send(result.toString());
     } 
 });
 
-// === Assignment 4
-// ======== reference treehouse for Assign #4
-// /trackName doesn't even load TT__TT
+/// === Assignment 4
 router.get("/trackName", (req, res) => {
-    const name = req.cookies.username;
-    if (name) {
-        res.render("index", { name });
-    } else {
-        res.redirect("/trackName");
+    let name = (req.query.name);
+    if (name !== "") {
+        res.cookie("name", name);
+        res.redirect("/myName");
+        res.send(name);
     }
 });
-
-router.get("/trackName", (req, res) => {
-    const name = req.cookies.username;
-    if (name) {
-        res.redirect("/trackName");
-    } else {
-        res.render("hello");
-    }
-});
-
-router.post("/trackName", (req, res) => {
-    res.cookie("username", req.body.username);
-    console.log(req.cookies.username);
-    res.redirect("/trackName");
-});
-// ======== 
 
 // exports this so app.js can import
 module.exports = router;
