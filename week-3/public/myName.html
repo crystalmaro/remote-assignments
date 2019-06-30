@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assignment 4</title>
+    
 </head>
 <body>
     <p id="ajax">Please enter your first name below</p>
-    
-    <!-- @todo hide input and button when name in cookies -->
-    <input id="getName" type="text" placeholder="Your Name" >
-    <button type="submit" onclick="trackName()">Submit</button>
+
+    <div id="nameBox">
+        <!-- hide input and button when name in cookies -->
+        <input id="getName" type="text" placeholder="Your Name" >
+        <button type="submit" onclick="trackName()">Submit</button>
+    </div>
 
     <script type="text/javascript" src="myName.js"></script>
 </body>
