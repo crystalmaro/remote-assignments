@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router();
+const path = require('path');
 
 // === Assignment 1: Web Server
 // '/' is the path, (req, res) is the callback
@@ -26,14 +27,24 @@ router.get("/getData", function(req, res){
 });
 
 /// === Assignment 4
-router.get("/trackName", (req, res) => {
-    let name = (req.query.name);
-    if (name !== "") {
-        res.cookie("name", name);
-        res.redirect("/myName");
-        res.send(name);
+router.get("/myName", (req, res) => {
+    let name = req.cookies.name;
+    if (name !== undefined && name !== "") {
+        // console.log("sending name from myname")
+        res.send("hello " + name);
+    } else {
+        // console.log("sending form from myname")
+        res.sendFile(path.join(__dirname, "../public", "myname.html"));
     }
 });
+
+router.post("/trackName", (req, res) => {
+    let name = req.query.name || req.body.name;
+    res.cookie("name", name);
+    res.redirect("/myName");
+})
+// trackName only works on POST method
+// req.body because <form> wihtin myName.html is being read as "body"
 
 // exports this so app.js can import
 module.exports = router;
