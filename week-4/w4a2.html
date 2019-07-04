@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script type="text/javascript">
+        // === Assignment 2: Callback Function and Advanced HTML DOM
+        function ajax(src, callback){
+            // 1. create XMLHTTP Request object
+            let xhr = new XMLHttpRequest();
+            // @todo 2. onreadychange
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    callback(xhr.responseText);
+                }
+            }
+            // @todo 3. open a GET request
+            xhr.open("GET", src)
+            // @todo 4. send the request
+            xhr.send();
+        }
+
+        function render(data){
+            // your code here
+            // ​document.createElement()​ and a​ppendChild()​ methods are preferred
+            let newDiv = document.createElement("div");
+            newDiv.style.background = "pink";
+            let newContent = document.createTextNode(data);
+            newDiv.appendChild(newContent);
+            let currentDiv = document.getElementById("div1");
+            document.body.insertBefore(newDiv, currentDiv);
+        }
+
+        ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function(response){
+            render(response);
+        });
+        // you should get product information in JSON format and render data in the page
+
+    </script>
+
+    <title>Week 4 Assign 2</title>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
