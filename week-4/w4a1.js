@@ -4,9 +4,6 @@ function delayedResult(n1, n2, delayTime, callback){
         callback(n1+n2)
     }, delayTime)
 };
-delayedResult(4, 5, 3000, function(result){
-    console.log(result);
-});
 
 /*
 // initial try: return correct calculation, but no delay
