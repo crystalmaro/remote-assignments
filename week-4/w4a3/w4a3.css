@@ -92,18 +92,16 @@ nav {
 }
 
 @media (min-width: 800px) {
-    .itemMenu,
-    .itemMenu a {
-        display: inline;
-    }
-
-    .burgerIcon {
+    /* .burgerIcon {
         display: none;
-    }
+    } */
 /* @todo display .toggleItems (except first child)  */
-    .toggleItems {
+    /* .toggleItems {
         display: inline;
         padding-left: 2.5rem;
+    } */
+    nav, .toggleItems {
+        background-color: pink;
     }
 
     .container {
