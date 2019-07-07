@@ -1,30 +1,30 @@
-
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <nav>
             Welcome Title / Logo
-                <div className="topNav" id="myTopNav">
-                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
-                <a href="#">Item 1</a>
-                <a href="#">Item 2</a>
-                <a href="#">Item 3</a>
-                <a href="#">Item 4</a>
-                </div>
+            <a className="burgerIcon" onClick={ props.onClick }>&#9776;</a>
+            {!props.hideNavItems && <NavItems onClick={ props.onClick }/>}
         </nav>
     )
 };
 
-const Header = () => {
+const NavItems = (props) => {
     return (
-        <h1 onClick="{changeH1}">Welcome Message</h1>
+        <section className="toggleItems">
+            <a className="X" onClick={ props.onClick }>X</a>
+            <span>
+                <a href="#">Item 1</a>
+                <a href="#">Item 2</a>
+                <a href="#">Item 3</a>
+                <a href="#">Item 4</a>
+            </span>
+        </section>
     )
 };
 
-const Title = () => {
-    return (
-        <h2>Section Title</h2>
-    )
-};
+const Header = (props) => <h1 onClick={ props.onClick }>{ props.text }</h1>;
+
+const Title = () => <h2>Section Title</h2>;
 
 const ContentBox1 = () => {
     return (
@@ -37,10 +37,12 @@ const ContentBox1 = () => {
     );
 };
 
-const Button = () => {
+const Button = (props) => {
     return (
-        // need to center button
-        <button>Call to Action</button>
+        <div className="callButton">
+            <button onClick={ props.onClick }>Call to Action</button>
+            {/* onClick={displayBox} */}
+        </div>
     )
 };
 
@@ -55,18 +57,65 @@ const ContentBox2 = () => {
     )
 };
 
-const App = () => {
-    return (
-        <div>
-            <Navigation />
-            <Header />
-            <Title />
-            <ContentBox1 />
-            <Button />
-            <ContentBox2 />
-        </div>
-    )
-};
+// App is "parents", Header is "child" in this casey
+// define click action in App, and pass in as class
+class App extends React.Component {
+    constructor(props) {
+      super(props);
+      // initialize state
+      this.state = {
+          header: "Welcome Message",
+          hideBox: true,
+          hideNavItems: true,
+        }
+    }
+
+    // onclick for header
+    changeHeader = () => {
+        this.setState( {header: "Have a Good Time!"} );
+    }
+    
+    // display box 5-8
+    displayBox = () => {
+        this.setState( {hideBox: false} )
+    }
+
+    displayNavItems = () => {
+        this.setState( {hideNavItems: !this.state.hideNavItems} )
+        // this.setState( {hideNavItems: false} )
+    }
+
+    render() {
+        return (
+            <div>
+                <Navigation onClick = {this.displayNavItems} hideNavItems = {this.state.hideNavItems} />
+                <Header text = {this.state.header} onClick = {this.changeHeader}/>
+                <Title />
+                <ContentBox1 />
+                <Button onClick = {this.displayBox}/>
+                {!this.state.hideBox && <ContentBox2 />}
+            </div>
+        )
+    }
+}
+
+
+
+
+
+
+// const App = () => {
+//     return (
+//         <div>
+//             <Navigation />
+//             <Header />
+//             <Title />
+//             <ContentBox1 />
+//             <Button />
+//             <ContentBox2 />
+//         </div>
+//     )
+// };
 
 ReactDOM.render(
     <App />,
