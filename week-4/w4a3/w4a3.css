@@ -1,0 +1,144 @@
+/* ====== Basic Layout ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+}
+
+h1, h2, .container, .box, button {
+    /* button isn't centered now*/
+    text-align: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+    border: 3rem solid rgb(204,221,238);
+    background-color: rgb(204,221,238);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+    /* margin-top 0 to not collide with Section Title */
+}
+
+.container2 {
+    display: none;
+    /* hidden for JS event */
+}
+
+.box {
+    background-color: rgb(136,153,170);
+    border: 0.5rem solid white;
+    padding: 0.5rem;
+    height: 10rem;
+    flex-basis: 95%;
+}
+
+.box1 {
+    border-top: 0;
+}
+
+button {
+    background-color: rgb(204,221,238);
+    padding: 0.7rem;
+    margin: 1rem;
+}
+
+/* ===== CSS Nav Bar ===== */
+nav {
+    padding: 1rem 2.5rem 1rem; 
+    background-color: rgb(238,238,238);
+}
+
+/* JS Nav Bar */
+.topNav {
+    float: right;
+}
+.topNav a {
+    text-decoration: none;
+    color: black;
+}
+.topNav a:not(:first-child) {
+    display: none;
+}
+
+/* JS responsive */
+.topNav.open {
+    /* position: relative; */
+    /* display: flex; */
+    background-color: white;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    line-height: 3rem;
+    padding: 1rem;
+}
+.topNav.open a.icon {
+    position: absolute;
+    right: 10%;
+    top: 1%;
+}
+.topNav.open a {
+    /* float: none; */
+    display: block;
+    text-align: left;
+}
+
+/* ===== Media Query for RWD ===== */
+@media (min-width: 500px) {
+    .box {
+        flex-basis: 50%;
+        border: 0.5rem solid white;
+    }
+    .box1,
+    .box2 {
+        border-top: 0;
+    }
+    .container {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 800px) {
+    .itemMenu,
+    .itemMenu a {
+        display: inline;
+    }
+    .topNav {
+        background-color: rgb(238,238,238);
+    }
+    .topNav a:not(:first-child) {
+        display: inline;
+        padding-left: 2.5rem;
+    }
+    .topNav a:first-child {
+        display: none;
+    }
+    /* label,
+    #toggle {
+        display: none;
+    } */
+    .container {
+        border-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* change from width to max-width for ReactJS */
+    .container {
+        max-width: 75rem;
+    }
+    .box {
+        max-width: 50%;
+    }
+}
