@@ -1,14 +1,19 @@
-const Navigation = (props) => {
+const NavBar = (props) => {
     return (
         <nav>
             Welcome Title / Logo
             <a className="burgerIcon" onClick={ props.onClick }>&#9776;</a>
-            {!props.hideNavItems && <NavItems onClick={ props.onClick }/>}
+            <span className="navBarItems">
+                <a href="#">Item 1</a>
+                <a href="#">Item 2</a>
+                <a href="#">Item 3</a>
+                <a href="#">Item 4</a>
+            </span>
         </nav>
     )
 };
 
-const NavItems = (props) => {
+const NavDrawer = (props) => {
     return (
         <section className="toggleItems">
             <a className="X" onClick={ props.onClick }>X</a>
@@ -60,16 +65,16 @@ const ContentBox2 = () => {
 // App is "parents", Header is "child" in this casey
 // define click action in App, and pass in as class
 class App extends React.Component {
-    constructor(props) {
-      super(props);
+    // constructor(props) {
+    //   super(props);
       // initialize state
-      this.state = {
-          header: "Welcome Message",
-          hideBox: true,
-          hideNavItems: true,
-        }
+    state = {
+        header: "Welcome Message",
+        isBoxHidden: true,
+        isNavItemsHidden: true
+        // }
     }
-
+ 
     // onclick for header
     changeHeader = () => {
         this.setState( {header: "Have a Good Time!"} );
@@ -77,45 +82,39 @@ class App extends React.Component {
     
     // display box 5-8
     displayBox = () => {
-        this.setState( {hideBox: false} )
+        // this.setState( {isBoxHidden: false} )
+        this.setState( {isBoxHidden: !this.state.isBoxHidden} )
     }
 
     displayNavItems = () => {
-        this.setState( {hideNavItems: !this.state.hideNavItems} )
-        // this.setState( {hideNavItems: false} )
+        this.setState( {isNavItemsHidden: !this.state.isNavItemsHidden} )
+        // this.setState( {isNavItemsHidden: false} )
+        // this.setState( {isNavItemsHidden: false} )
+    }
+
+    // hide NavItems
+    hideNavItems = () => {
+        this.setState( {isNavItemsHidden: true} )
     }
 
     render() {
         return (
             <div>
-                <Navigation onClick = {this.displayNavItems} hideNavItems = {this.state.hideNavItems} />
+                <NavBar onClick = {this.displayNavItems} hideNavItems = {this.state.hideNavItems} />
+                {/* <NavBar onClick = {this.displayNavItems}/> */}
+                {/* {!this.state.ishideNavItems && <NavDrawer onClick = {this.hideNavItems}/>} */}
+                {/* <NavBar onClick = {this.displayNavItems} hideNavItems = {this.state.hideNavItems} /> */}
+                {!this.state.isNavItemsHidden && <NavDrawer onClick = {this.hideNavItems}/>}
+                {/* {!this.state.isNavItemsHidden && <NavDrawer />} */}
                 <Header text = {this.state.header} onClick = {this.changeHeader}/>
                 <Title />
                 <ContentBox1 />
                 <Button onClick = {this.displayBox}/>
-                {!this.state.hideBox && <ContentBox2 />}
+                {!this.state.isBoxHidden && <ContentBox2 />}
             </div>
         )
     }
 }
-
-
-
-
-
-
-// const App = () => {
-//     return (
-//         <div>
-//             <Navigation />
-//             <Header />
-//             <Title />
-//             <ContentBox1 />
-//             <Button />
-//             <ContentBox2 />
-//         </div>
-//     )
-// };
 
 ReactDOM.render(
     <App />,

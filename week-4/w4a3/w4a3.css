@@ -17,25 +17,37 @@ h1 {
     border: 3rem solid rgb(204,221,238);
     background-color: rgb(204,221,238);
 }
-
-.container {
+/* --1200px-- */
+/* .container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 0;
-    /* margin-top 0 to not collide with Section Title */
+    
+    align-content: center;
+    max-width: 75rem;
 }
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(136,153,170);
+    border: 0.5rem solid white;
+    padding: 0.5rem;
+    height: 10rem;
+    max-width: 40%;
+    flex-basis: 40%;
 
+} */
+.container {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75rem;
+    padding: 0.5rem;
+}
 .box {
     background-color: rgb(136,153,170);
     border: 0.5rem solid white;
     padding: 0.5rem;
     height: 10rem;
-    flex-basis: 95%;
-}
-
-.box1 {
-    border-top: 0;
+    width: 50%;
 }
 
 button {
@@ -49,34 +61,21 @@ nav {
     padding: 1rem 2.5rem 1rem; 
     background-color: rgb(238,238,238);
 }
-.burgerIcon {
+.navBarItems {
     float: right;
 }
-
-.X {
-    float: right;
-}
-
-.toggleItems a {
+.navBarItems a{
     text-decoration: none;
     color: black;
-    display: flex;
-    flex-direction: column;
+    padding-left: 3rem;
 }
 
-.toggleItems {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    line-height: 3rem;
-    padding: 1rem;
+.burgerIcon {
+    display: none;
 }
 
 /* ===== Media Query for RWD ===== */
-@media (min-width: 500px) {
+/* @media (min-width: 500px) {
     .box {
         flex-basis: 50%;
         border: 0.5rem solid white;
@@ -89,32 +88,48 @@ nav {
         max-width: 95%;
         margin: 0 auto;
     }
+} */
+@media (max-width: 500px) {
+    .box {
+        width: 100%;
+    }
 }
 
-@media (min-width: 800px) {
-    /* .burgerIcon {
-        display: none;
-    } */
-/* @todo display .toggleItems (except first child)  */
-    /* .toggleItems {
+@media (max-width: 800px) {
+    .burgerIcon {
         display: inline;
-        padding-left: 2.5rem;
-    } */
-    nav, .toggleItems {
-        background-color: pink;
+        float: right;
     }
-
-    .container {
-        border-top: 0;
+    .navBarItems {
+        display: none;
+    }
+    .X {
+        float: right;
+    }
+    .toggleItems a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        flex-direction: column;
+    }
+    .toggleItems {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        line-height: 3rem;
+        padding: 1rem;
     }
 }
 
 @media (min-width: 1200px) {
     /* change from width to max-width for ReactJS */
-    .container {
+    /* .container {
         max-width: 75rem;
     }
     .box {
         max-width: 50%;
-    }
+    } */
 }
