@@ -23,12 +23,29 @@
         }
 
         function render(data){
-            let newDiv = document.createElement("div");
-            newDiv.style.background = "pink";
-            let newContent = document.createTextNode(data);
-            newDiv.appendChild(newContent);
-            let currentDiv = document.getElementById("div1");
-            document.body.insertBefore(newDiv, currentDiv);
+            let currentList = document.getElementById("list");
+            let newList = currentList;
+            // data is a string, not an object, so use JSON.parse
+            let obj = JSON.parse(data)
+            for (let i = 0; i < obj.length; i++) {
+                let parentLi = document.createElement("li");
+                let product = document.createElement("ul");
+                let name = document.createElement("li");
+                let price = document.createElement("li");
+                let desc = document.createElement("li");
+
+                name.appendChild(document.createTextNode(`Name: ${obj[i].name}`));
+                price.appendChild(document.createTextNode(`Price: ${obj[i].price}`));
+                desc.appendChild(document.createTextNode(`Description: ${obj[i].desc}`));
+                
+                product.appendChild(name);
+                product.appendChild(price);
+                product.appendChild(desc);
+
+                parentLi.appendChild(product);
+                newList.appendChild(parentLi);
+            }
+            document.body.insertBefore(newList, currentList);
         }
 
         ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function(response){
@@ -39,6 +56,6 @@
     <title>Week 4 Assign 2</title>
 </head>
 <body>
-    <div id="div1"></div>
+    <ul id="list"></ul>
 </body>
 </html>
