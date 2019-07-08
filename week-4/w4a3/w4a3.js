@@ -46,7 +46,6 @@ const Button = (props) => {
     return (
         <div className="callButton">
             <button onClick={ props.onClick }>Call to Action</button>
-            {/* onClick={displayBox} */}
         </div>
     )
 };
@@ -62,17 +61,13 @@ const ContentBox2 = () => {
     )
 };
 
-// App is "parents", Header is "child" in this casey
-// define click action in App, and pass in as class
 class App extends React.Component {
-    // constructor(props) {
-    //   super(props);
-      // initialize state
     state = {
         header: "Welcome Message",
+// App is "parent", Header is "child" in this case
+// define click action in App, and pass in as class
         isBoxHidden: true,
         isNavItemsHidden: true
-        // }
     }
  
     // onclick for header
@@ -89,7 +84,6 @@ class App extends React.Component {
     displayNavItems = () => {
         this.setState( {isNavItemsHidden: !this.state.isNavItemsHidden} )
         // this.setState( {isNavItemsHidden: false} )
-        // this.setState( {isNavItemsHidden: false} )
     }
 
     // hide NavItems
@@ -102,8 +96,6 @@ class App extends React.Component {
             <div>
                 <NavBar onClick = {this.displayNavItems} hideNavItems = {this.state.hideNavItems} />
                 {/* <NavBar onClick = {this.displayNavItems}/> */}
-                {/* {!this.state.ishideNavItems && <NavDrawer onClick = {this.hideNavItems}/>} */}
-                {/* <NavBar onClick = {this.displayNavItems} hideNavItems = {this.state.hideNavItems} /> */}
                 {!this.state.isNavItemsHidden && <NavDrawer onClick = {this.hideNavItems}/>}
                 {/* {!this.state.isNavItemsHidden && <NavDrawer />} */}
                 <Header text = {this.state.header} onClick = {this.changeHeader}/>
